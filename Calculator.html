@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="Calculator.css">
+</head>
+<body>
+    <div class="calc-body">
+
+        <div class="calc-screen" id="screen">
+            <div id="calc-operation"> </div>
+            <div id="calc-typed">0</div>
+        </div>
+
+        <div class="calc-button-row">
+            <button class="ac" onclick="AC()">AC</button>
+            <button class="opt" onclick="operator('43')">+</button>
+            <button class="opt" onclick="operator('45')">-</button>
+            <button class="opt" onclick="operator('37')">%</button>
+            <button class="opt" onclick="operator('47')">/</button>
+            <button onclick="operand('7')">7</button>
+            <button onclick="operand('8')">8</button>
+            <button onclick="operand('9')">9</button>
+            <button class="opt" onclick="operator('42')">*</button>
+            <button onclick="operand('4')">4</button>
+            <button onclick="operand('5')">5</button>
+            <button onclick="operand('6')">6</button>
+            <button class="opt" onclick="operator('45')">-</button>
+            <button onclick="operand('1')">1</button>
+            <button onclick="operand('2')">2</button>
+            <button onclick="operand('3')">3</button>
+            <button class="opt"onclick="operator('43')">+</button>
+            <button onclick="operand('0')">0</button>
+            <button>.</button>
+            <button onclick="del()">&#9003;</button>
+            <button class="opt" id="equals" onclick="answer()">&#61;</button>
+        </div>
+    </div>
+
+    <script>
+        
+        let sum="";
+        function operand(op1)
+        {
+            sum = sum + op1;
+            document.getElementById("calc-operation").innerHTML = sum;
+        }
+        function operator(opt)
+        {
+            let text = String.fromCharCode(opt);
+            sum += text;
+            document.getElementById("calc-operation").innerHTML = sum;
+        }
+        function answer()
+        {
+            document.getElementById("calc-typed").innerHTML = eval(sum);
+        }
+        function AC()
+        {
+            sum="";
+            document.getElementById("calc-typed").innerHTML = "0";
+            document.getElementById("calc-operation").innerHTML = sum;
+        }
+
+    </script>
+</body>
+</html>
